@@ -1,0 +1,25 @@
+#!/bin/sh
+
+### Commands for ssh port forwarding
+### Args:
+###   remote : remote host name
+###   remote_port : port number of remote host
+###   local_port : port number of local host (default: same as remote_port)
+
+# Arguments
+remote=$1
+remote_port=$2
+local_port=$3
+
+# Exception handling
+if [ -z $remote ] || [ -z $remote_port ]; then
+  echo "Please specify arg1(remote host) and arg2(remote port)"
+  exit 1
+fi
+
+if [ -z $local_port ]; then
+  local_port=$remote_port
+fi
+  
+# Execute command
+ssh $remote -L $remote_port:localhost:$local_port -N -f
