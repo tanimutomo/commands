@@ -1,0 +1,17 @@
+#!/bin/sh
+
+### Commands for checking used port
+### Args:
+###   remote : port number to check
+
+# Arguments
+port=$1
+
+# Exception handling
+if [ -z $port ]; then
+  echo "Please specify arg1(port number )"
+  exit 1
+fi
+
+# Execute command
+lsof -i -n -P | grep $port
