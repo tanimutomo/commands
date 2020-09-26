@@ -13,7 +13,7 @@ local_port=$3
 
 # Exception handling
 if [ -z $remote ] || [ -z $remote_port ]; then
-  echo "Please specify arg1(remote host) and arg2(remote port)"
+  echo "Please specify arg1(remote hostname) and arg2(remote port)"
   exit 1
 fi
 
