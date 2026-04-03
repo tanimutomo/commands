@@ -1,0 +1,21 @@
+#!/bin/sh
+
+### Commands for Obsidian directory operations
+
+OBSIDIAN_DIR="/Users/tanimutomo/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian"
+
+# Check subcommand
+case "$1" in
+  cd)
+    cd "$OBSIDIAN_DIR" && exec "$SHELL"
+    ;;
+  code)
+    code "$OBSIDIAN_DIR"
+    ;;
+  *)
+    echo "Usage: obs {cd|code}"
+    echo "  cd   - Change directory to Obsidian vault"
+    echo "  code - Open Obsidian vault in VSCode"
+    exit 1
+    ;;
+esac
