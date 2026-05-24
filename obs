@@ -2,7 +2,7 @@
 
 ### Commands for Obsidian directory operations
 
-OBSIDIAN_DIR="/Users/tanimutomo/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian"
+OBSIDIAN_DIR="/Users/tanimutomo/Obsidian/tanimutomo"
 
 # Check subcommand
 case "$1" in
@@ -12,10 +12,18 @@ case "$1" in
   code)
     code "$OBSIDIAN_DIR"
     ;;
+  pull)
+    cd "$OBSIDIAN_DIR" && git pull origin main
+    ;;
+  push)
+    cd "$OBSIDIAN_DIR" && git pull origin main && git add . && git commit -m "auto commit by obs" && git push origin main
+    ;;
   *)
     echo "Usage: obs {cd|code}"
     echo "  cd   - Change directory to Obsidian vault"
     echo "  code - Open Obsidian vault in VSCode"
+    echo "  pull - Pull origin main changes"
+    echo "  push - Commit and Push changes"
     exit 1
     ;;
 esac
