@@ -1,5 +1,5 @@
 #!/bin/sh
 
-### Plaud の新しい録音を Notta に送って文字起こしさせる（本体は tanimutomo/plaud-to-notta）
+### Plaud の新しい録音を Notta に送って文字起こしさせる（本体は tanimutomo/claude-scripts の plaud-to-notta/）
 
-exec node "$HOME/.repo/src/github.com/tanimutomo/plaud-to-notta/plaud-to-notta.mjs" "$@"
+exec node "$HOME/scripts/plaud-to-notta/plaud-to-notta.mjs" "$@"
